@@ -103,19 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '';
 
         const numSymbols = 150;
-        for (let i = 0; i < numSymbols; i++) {
-            const symbol = document.createElement('div');
-            symbol.classList.add('symbol', Math.random() > 0.5 ? 'x' : 'o');
-            symbol.textContent = Math.random() > 0.5 ? 'X' : 'O';
-
-            symbol.style.fontSize = `${Math.random() * 3 + 1}em`;
-            symbol.style.top = `${Math.random() * 100}vh`;
-            symbol.style.left = `${Math.random() * 100}vw`;
-            symbol.style.transform = `rotate(${Math.random() * 360}deg)`;
-            symbol.style.animation = `float ${Math.random() * 10 + 5}s infinite ease-in-out`;
-
-            container.appendChild(symbol);
-        }
 
         board.addEventListener('click', handleCellClick);
     }

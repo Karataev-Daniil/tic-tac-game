@@ -15,7 +15,8 @@ body.lock-scroll {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
+    gap: 16px;
+    margin: 32px ;
     padding: 0;
 }
 .game-menu h1 {
@@ -31,8 +32,18 @@ body.lock-scroll {
     border-radius: 24px;
 }
 .game-menu #status {
-    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
     font-size: 1.2em;
+    background-color: var(--violet_0);
+    color: var(--purple_5);
+    opacity: 0.8;
+}
+.game-menu #status.win-x {
+    background-color: var(--red_0);
+}
+.game-menu #status.win-o {
+    background-color: var(--blue_0);
 }
 
 /* Game Board Wrapper */
@@ -87,6 +98,7 @@ body.lock-scroll {
     color: var(--purple_5);
     border: none;
     padding: 20px 40px;
+    margin: 32px 0;
     border-radius: 16px;
     font-size: 28px;
     line-height: 140%;
@@ -106,32 +118,7 @@ body.lock-scroll {
     z-index: -1;
 }
 
-/* Floating Symbols */
-.x, .o {
-    position: absolute;
-    font-size: 3em;
-    transform-origin: center;
-}
-.x {
-    color: var(--purple_0);
-}
-.o {
-    color: var(--purple_4);
-    border-radius: 50%;
-}
-
 /* Animations */
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-200px) rotate(360deg);
-    }
-    100% {
-        transform: translateY(0) rotate(720deg);
-    }
-}
 @keyframes confettiFall {
     0% {
         transform: translateY(0) rotate(0deg);

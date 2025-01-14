@@ -79,6 +79,19 @@
     --violet_4: #EFE9FA;
     --violet_5: #FAF7FD;
 
+    /* Secondary сolors 'blue' */
+    --blue_-5: #101B1C;
+    --blue_-4: #193334;
+    --blue_-3: #204C4E;
+    --blue_-2: #1D686B;
+    --blue_-1: #17868A;
+    --blue_0: #0BA7AD;
+    --blue_1: #46BCC1;
+    --blue_2: #8DD4D7;
+    --blue_3: #BEE5E7;
+    --blue_4: #E4F3F4;
+    --blue_5: #F6FBFB;
+
     /* Feedback colors 'success' */
     --success_-5: #171B13;
     --success_-4: #26321C;

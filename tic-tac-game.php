@@ -40,6 +40,7 @@ function tic_tac_game_shortcode() {
         </div>
         <button id="restart-button" style="opacity: 0;">Restart Game</button>
         <div id="animation-container"></div>
+        <div id="background-animation-container"></div>
 
     <?php return ob_get_clean();
 }
