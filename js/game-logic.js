@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 board.removeEventListener('click', handleCellClick);
                 toggleRestartButton(true);
 
-                // Запуск анимации конфетти
                 createConfetti();
             } else if ([...document.querySelectorAll('.cell')].every(cell => cell.textContent)) {
                 status.textContent = 'It\'s a Draw!';

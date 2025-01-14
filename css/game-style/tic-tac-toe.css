@@ -1,105 +1,87 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: var(--violet_-4);
+}
+body.lock-scroll {
+    overflow: hidden;
+}
+
+/* Game Menu Styles */
 .game-menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    h1 {
-        width: 97vh;
-        color: var(--purple_5);
-        background-color: var(--violet_0);
-        opacity: 0.8;
-        font-size: 96px;
-        line-height: 130%;
-        font-weight: 700;
-        padding: 20px;
-        margin: 10px 10px 0;
-        border-radius: 24px;
-    }
-
-    #status {
-        margin: 20px;
-        font-size: 1.2em;
-    }
-
-    div {
-        color: var(--purple_5);
-        background-color: var(--violet_0);
-        padding: 20px;
-        border-radius: 24px;
-        width: fit-content;
-    }
-
-    .win-x {
-        background-color: var(--red_0);
-    }
-
-    .win-o {
-        background-color: var(--success_0);
-    }
-}
-
-.d {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 97vh;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    align-items: center;
     margin: 0;
     padding: 0;
-    background-color: var(--violet_-4);
-
-    #restart-button {
-        position: relative;
-    }
+}
+.game-menu h1 {
+    width: 97vh;
+    color: var(--purple_5);
+    background-color: var(--violet_0);
+    opacity: 0.8;
+    font-size: 96px;
+    line-height: 130%;
+    font-weight: 700;
+    padding: 20px;
+    margin: 10px 10px 0;
+    border-radius: 24px;
+}
+.game-menu #status {
+    margin: 20px;
+    font-size: 1.2em;
 }
 
+/* Game Board Wrapper */
 .wrapper__game-board {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .game-board::before {
-        content: ''; 
-        position: absolute; 
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--violet_-3); 
-        opacity: 0.9; 
-        z-index: -1; 
-        border-radius: 56px;
-    }
-    
-    .game-board {
-        position: relative;
-        display: grid;
-        grid-template-columns: repeat(3, 100px);
-        gap: 5px;
-        justify-content: center;
-        padding: 100px;
-    
-        .cell {
-            width: 100px;
-            height: 100px;
-            background-color: var(--violet_0);
-            color: var(--violet_5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            cursor: pointer;
-        }
-    
-        .cell:hover {
-            background-color: var(--violet_3);
-        }
-    }
 }
 
+/* Game Board Styles */
+.game-board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    padding: 100px;
+    background-color: var(--violet_-3);
+    border-radius: 56px;
+    z-index: 0;
+}
+.game-board::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--violet_-3);
+    opacity: 0.9;
+    z-index: -1;
+    border-radius: 56px;
+}
+.game-board .cell {
+    width: 100px;
+    height: 100px;
+    background-color: var(--violet_0);
+    color: var(--violet_5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    cursor: pointer;
+}
+.game-board .cell:hover {
+    background-color: var(--violet_3);
+}
 
+/* Restart Button */
 #restart-button {
     background-color: var(--violet_-3);
     color: var(--purple_5);
@@ -109,8 +91,11 @@
     font-size: 28px;
     line-height: 140%;
     font-weight: 700;
+    position: relative;
+    opacity: 0;
 }
 
+/* Animation Container */
 #animation-container {
     position: absolute;
     top: 0;
@@ -118,25 +103,24 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1; 
-
+    z-index: -1;
 }
+
+/* Floating Symbols */
 .x, .o {
     position: absolute;
     font-size: 3em;
     transform-origin: center;
 }
-
 .x {
     color: var(--purple_0);
 }
-
 .o {
     color: var(--purple_4);
     border-radius: 50%;
 }
 
-
+/* Animations */
 @keyframes float {
     0% {
         transform: translateY(0) rotate(0deg);
@@ -148,7 +132,6 @@
         transform: translateY(0) rotate(720deg);
     }
 }
-
 @keyframes confettiFall {
     0% {
         transform: translateY(0) rotate(0deg);
@@ -168,14 +151,23 @@
     opacity: 1;
     animation: confettiFall var(--animation-duration) ease-out forwards;
 }
-
 .confetti:nth-child(odd) {
     background-color: #0f0;
 }
-
 .confetti:nth-child(even) {
     background-color: #00f;
 }
 
-
-
+/* Start Button */
+.buttun-start {
+    position: fixed;
+    padding: 20px 35px;
+    border: 3px solid #FFEC8B;
+    border-radius: 56px;
+    color: #FFEC8B;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background-color: #00bfff80;
+}

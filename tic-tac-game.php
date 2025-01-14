@@ -6,18 +6,10 @@ Version: 0.7
 Author: Daniil Karataev
 */
 
-function tic_tac_game_enqueue_scripts() {
-    if (is_page_template('template/tic-tac-toe.php')) {
-        // tikhnic scripts
-        wp_enqueue_script( 'tic_tac-script',                plugins_url('/script.js', __FILE__), array(), null, true);
-    }
-}
-add_action('wp_enqueue_scripts', 'tic_tac_game_enqueue_styles');
-
 function tic_tac_game_animation_enqueue_scripts() {
     if (is_page_template('template/tic-tac-toe.php')) {
         // game scripts
-        wp_enqueue_script( 'tic_tac_animation',             plugins_url('/js/tic-tac-game-logic.js', __FILE__), array(), get_file_version('/js/tic-tac-game-logic.js'), null, true);
+        wp_enqueue_script( 'tic_tac_animation',             plugins_url('js/game-logic.js', __FILE__), array(), get_file_version('/js/game-logic.js'), null, true);
     }
 }
 add_action('wp_enqueue_scripts', 'tic_tac_game_animation_enqueue_scripts');
@@ -25,16 +17,16 @@ add_action('wp_enqueue_scripts', 'tic_tac_game_animation_enqueue_scripts');
 function tic_tac_game_enqueue_styles() {
     if (is_page_template('template/tic-tac-toe.php')) {
         // tikhnic styles
-        wp_enqueue_style( 'tic_tac_reset_style',            plugins_url('/css/reset.css', __FILE__), array(), get_file_version('/css/reset.css') );
-        wp_enqueue_style( 'tic_tac_fonts_style',            plugins_url('/css/fonts.css', __FILE__), array(), get_file_version('/css/fonts.css') );
+        wp_enqueue_style( 'tic_tac_reset_style',            plugins_url('css/reset.css', __FILE__), array(), get_file_version('/css/reset.css') );
+        wp_enqueue_style( 'tic_tac_fonts_style',            plugins_url('css/fonts.css', __FILE__), array(), get_file_version('/css/fonts.css') );
 
-        wp_enqueue_style( 'tic_tac_style',                  plugins_url('/style.css', __FILE__), array(), get_file_version('/style.css') );
+        wp_enqueue_style( 'tic_tac_style',                  plugins_url('style.css', __FILE__), array(), get_file_version('/style.css') );
 
         // game styles
-        wp_enqueue_style( 'tic_tac_game_style',             plugins_url('/css/game-style/tic-tac-toe.css', __FILE__), array(), get_file_version('/css/game-style/tic-tac-toe.css') );
+        wp_enqueue_style( 'tic_tac_game_style',             plugins_url('css/game-style/tic-tac-toe.css', __FILE__), array(), get_file_version('/css/game-style/tic-tac-toe.css') );
     }
 }
-add_action('wp_enqueue_styles', 'tic_tac_game_enqueue_styles');
+add_action('wp_enqueue_scripts', 'tic_tac_game_enqueue_styles');
 
 function tic_tac_game_shortcode() {
     ob_start(); ?>
@@ -48,9 +40,6 @@ function tic_tac_game_shortcode() {
         </div>
         <button id="restart-button" style="opacity: 0;">Restart Game</button>
         <div id="animation-container"></div>
-        <div class="footer-menu__wrapper">
-            <p class="autor">created by Daniil Karataev</p>
-        </div>
 
     <?php return ob_get_clean();
 }
